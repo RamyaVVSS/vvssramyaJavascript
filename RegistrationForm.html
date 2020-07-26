@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+<script type="text/javascript">
+function validate(){
+	var fname = document.forms["regform"]["firstname"].value;
+	var lname = document.forms["regform"]["lastname"].value;
+	var dob = document.forms["regform"]["dob"].value;
+	var email = document.forms["regform"]["mail"].value;
+	var emailpattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var res = emailpattern.test(email);
+	var pswd = document.forms["regform"]["password"].value;
+	var cpswd = document.forms["regform"]["confirmpassword"].value;
+	var mobile = document.forms["regform"]["mobilenumber"].value;
+	var phonepattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+ 	if(fname==""){
+ 		alert("Please enter your First Name");
+ 		return false;
+	}
+	else if(lname==""){
+ 		alert("Please enter your Last Name");
+ 		return false;
+	}
+	else if(dob==""){
+ 		alert("Please enter your Date of Birth");
+ 		return false;
+ 	}
+ 	else if(email==""){
+ 		alert("Please enter your Email");
+ 		return false;
+ 	}else if(!res){
+ 		alert("Please enter Email in the correct format");
+ 		return false;
+ 	} 
+ 	else if(pswd==""){
+ 		alert("Please enter the Password");
+ 		return false;
+	}
+	else if(cpswd==""){
+ 		alert("Please confirm the Password");
+ 		return false;
+ 	}
+ 	else if(mobile==""){
+ 		alert("Please enter your mobile number");
+ 		return false;
+ 	}else if(!(mobile.match(phonepattern))){
+ 		alert("Please enter a valid mobile number");
+		return false;
+	}else{
+		alert("Successfully Registered!!");
+		return true;
+	}
+	
+}
+</script>
+
+<style type="text/css">
+	.container{
+    		margin-top: 5%;
+    		width: 25%;
+    		height: 70%;
+  	}
+  
+  	#logincontainer{
+    		box-shadow: 5px 10px 18px #888888;
+  	}
+  
+  	.header{
+    		display: flex;
+    		background-color: #33cccc;
+    		height: 40px;
+    		margin-bottom: 15px;
+    		margin-left: -15px;
+    		margin-right: -15px;
+    		color: white;
+  	}
+  
+	.header .fa-graduation-cap{
+    		margin-top: 10px;
+    		margin-left: 10px;
+  	}
+  
+  	.header h5{
+    		margin-top: 5px;
+    		align-content: center;
+    		margin-left: 34%;
+    		margin-right: 30%;
+  	}
+  
+  	.header .fa-times{
+    		margin-top: 10px;
+  	}
+  
+  	.inputText{
+    		display: flex;
+    		color: gray;
+  	}
+  
+  	.inputText .fa-envelope{
+    		margin-top: 8px;
+    		position: absolute;
+    		margin-left: 20.8%;
+  	}
+  
+  	.inputText .fa-unlock{
+    		margin-top: 8px;
+    		position: absolute;
+    		margin-left: 20.8%;
+  	}
+	
+	.inputText .fa-phone{
+    		margin-top: 8px;
+    		position: absolute;
+    		margin-left: 20.8%;
+  	}
+
+	.inputText .fa-user{
+    		margin-top: 8px;
+    		position: absolute;
+    		margin-left: 20.8%;
+  	}
+
+	.inputText .fa-birthday-cake{
+    		margin-top: 8px;
+    		position: absolute;
+    		margin-left: 20.8%;
+  	}
+  
+  	input{
+    		height: 40px;
+    		width: 98%;
+    		margin-bottom: 2%;
+  	}
+  
+  	.btn-primary{
+    		margin-top: -10px;
+    		background-color: #33cccc;
+  	}
+  
+  	button{
+    		font-family: 'Open Sans', sans-serif;
+    		width: 98%;
+    		margin-top: 2.5%;
+    		margin-bottom: 2.5%;
+  	}
+  
+  	.tags{
+    		display: flex;
+  	}
+  
+  	.OR{
+    		display: flex;
+		color: gray;
+  	}
+  
+  	.btn-secondary{
+    		background-color: #003380;
+  	}
+  
+  	#forgotPswd{
+    		margin-right: 25%;
+		color: gray;
+  	}
+	
+	#register{
+		margin-right: -10%;
+		text-align: center;
+		color: gray;
+	}
+  
+  	.btn-success{
+    		margin-top: 25px;
+    		background-color: #77b300;
+  	}
+  
+  	@media (max-width: 1200px) {
+    	.container{
+      		width: 40%;
+    	}
+ 
+	.inputText .fa-envelope{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 30%;
+    	}
+  
+    	.inputText .fa-unlock{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 30%;
+    	}
+	.inputText .fa-phone{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 30%;
+    	}
+	.inputText .fa-user{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 30%;
+    	}
+	.inputText .fa-birthday-cake{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 30%;
+    	}
+  	}
+  
+  	@media (max-width: 800px) {
+    	.container{
+      		width: 70%;
+    	}
+  
+    	.inputText .fa-envelope{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 50%;
+    	}
+  
+    	.inputText .fa-unlock{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 50%;
+    	}
+	.inputText .fa-phone{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 50%;
+    	}
+	.inputText .fa-user{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 50%;
+    	}
+	.inputText .fa-birthday-cake{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 50%;
+    	}
+  	}
+  
+  	@media (max-width: 600px) {
+    	.container{
+      		width: 90%;
+    	}
+  
+    	.inputText .fa-envelope{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 70%;
+    	}
+  
+    	.inputText .fa-unlock{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 70%;
+    	}
+	.inputText .fa-phone{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 70%;
+    	}
+	.inputText .fa-user{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 70%;
+    	}
+	.inputText .fa-birthday-cake{
+      		margin-top: 5px;
+      		position: absolute;
+      		margin-left: 70%;
+    	}
+  	}
+</style>
+</head>
+
+<body>
+    <div class="container" id="logincontainer">
+      <form name="regform">
+        <div class="header">
+          <i class="fas fa-graduation-cap"></i>
+          <h5><b style="text-align:center">Sign Up</b></h5>
+          <i class="fas fa-times"></i>
+        </div>
+	<div class="inputText">
+          <input type="text" name="firstname" placeholder="First Name" required="required">
+          <span class="fas fa-user"></span>
+        </div>
+	<div class="inputText">
+          <input type="text" name="lastname" placeholder="LastName" required="required">
+          <span class="fas fa-user"></span>
+        </div>
+	<div class="inputText">
+          <input type="text" name="dob" placeholder="Date of Birth" onfocus="(this.type='date')" required="required">
+	  <!--span class="fas fa-birthday-cake"></span-->
+        </div>
+        <div class="inputText">
+          <input type="text" name="mail" placeholder="mail@example.com" required="required">
+          <span class="fas fa-envelope"></span>
+        </div>
+        <div class="inputText">
+          <input type="password" name="password" placeholder="password" required="required">
+          <span class="fas fa-unlock"></span>
+        </div>
+	<div class="inputText">
+          <input type="password" name="confirmpassword" placeholder="Confirm password" required="required">
+          <span class="fas fa-unlock"></span>
+        </div>
+	<div class="inputText">
+          <input type="text" name="mobilenumber" placeholder="Mobile Number" required="required">
+          <span class="fas fa-phone"></span>
+        </div>
+        <br/>
+        <div class="tags">
+          <h6 id="register">If already registered <b><u><a href=#>Sign in!</a></u></b></h6>
+        </div>
+        <br/>
+        <input style="color:white;background-color:green" type="submit" name="button" value="EPAM REGISTER" onclick="return validate()">
+      </form>
+    </div>
+</body>
+</html>
